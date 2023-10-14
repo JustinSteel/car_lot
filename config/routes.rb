@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/makes", to: "makes#index"
   get "/makes/:id", to: "makes#show"
   get "/cars", to: "cars#index"
+  get "/cars/:id", to: "cars#show"
 end

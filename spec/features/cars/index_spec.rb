@@ -13,7 +13,7 @@ RSpec.describe "/cars", type: :feature do
       mustang = ford.cars.create!(name:"Mustang", engine:8, new:false)
 
       visit "/cars"
-      save_and_open_page
+      
       expect(page).to have_content(spark.name)
       expect(page).to have_content(mustang.name)
     end
