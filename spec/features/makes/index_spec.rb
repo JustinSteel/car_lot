@@ -37,4 +37,33 @@ RSpec.describe "/makes", type: :feature  do
       expect(page).to have_content(corvette.engine)
     end
   end
+
+#   As a visitor
+# When I visit the parent index,
+# I see that records are ordered by most recently created first
+# And next to each of the records I see when it was created
+  describe "When I visit the make index" do
+    it "I see that records are ordered by most recently created first" do
+      chevy = Make.create!(name:"Chevy", year:1905, american:true)
+      ford = Make.create!(name:"Ford", year:1888, american:true)
+      suzuki = Make.create!(name:"Suzuki", year:1909, american:false)
+
+      visit "/makes"
+
+      expect(chevy.name).to appear_before(ford.name)
+      expect(suzuki.name).to_not appear_before(ford.name)
+    end
+
+    it "And next to each of the records I see when it was created" do
+      suzuki = Make.create!(name:"Suzuki", year:1909, american:false)
+      chevy = Make.create!(name:"Chevy", year:1905, american:true)
+      ford = Make.create!(name:"Ford", year:1888, american:true)
+
+      visit "/makes"
+save_and_open_page
+      expect(page).to have_content(chevy.created_at)
+      expect(page).to have_content(ford.created_at)
+      expect(page).to have_content(suzuki.created_at)
+    end
+  end
 end
