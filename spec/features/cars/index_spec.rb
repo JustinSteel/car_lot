@@ -18,4 +18,22 @@ RSpec.describe "/cars", type: :feature do
       expect(page).to have_content(mustang.name)
     end
   end
+
+#   As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Parent Index
+  describe "When I visit any page on the site" do
+    it "Then I see a link at the top of the page that takes me to the Parent Index" do
+      # arrange
+
+      # act
+      visit "/cars"
+
+      # assert
+      save_and_open_page
+      click_on "Make Index"
+      expect(current_path).to eq("/makes")
+    end
+  end
+
 end
