@@ -66,4 +66,18 @@ RSpec.describe "/makes", type: :feature  do
       expect(page).to have_content(suzuki.created_at)
     end
   end
+
+#   As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+  describe "When I visit any page on the site" do
+    it "Then I see a link at the top of the page that takes me to the Child Index" do
+
+      visit "/makes"
+# save_and_open_page
+      click_on "Car Index"
+      expect(current_path).to eq("/cars")
+    end
+  end
+
 end

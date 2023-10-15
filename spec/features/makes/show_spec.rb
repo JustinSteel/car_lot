@@ -28,7 +28,7 @@ RSpec.describe "/makes/:id", type: :feature  do
       malabu = chevy.cars.create!(name:"Malabu", engine:6, new:false)
 
       visit "/makes/#{chevy.id}"
-      save_and_open_page
+      
       expect(page).to have_content("Number of cars: 3")
     end
   end
