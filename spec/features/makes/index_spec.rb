@@ -60,7 +60,7 @@ RSpec.describe "/makes", type: :feature  do
       ford = Make.create!(name:"Ford", year:1888, american:true)
 
       visit "/makes"
-save_and_open_page
+
       expect(page).to have_content(chevy.created_at)
       expect(page).to have_content(ford.created_at)
       expect(page).to have_content(suzuki.created_at)
