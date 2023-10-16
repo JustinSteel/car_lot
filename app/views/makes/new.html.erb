@@ -1,8 +1,9 @@
-<form action="/makes" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new make:</p>
-  Name <input type='text' name='make[name]'/><br/>
-  Year founded <textarea name='make[year]'></textarea><br/>
-  American made? <textarea name='make[american]'></textarea><br/>
-  <input type='submit' value='Create Make'/>
-</form>
+<%= form_with model: @make, data: {turbo:false} do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, placeholder: "make name" %>
+  <%= form.label :year %>
+  <%= form.text_field :year, placeholder; "Year established" %>
+  <%= form.label :american %>
+  <%= form.select :american, [true, false] %>
+  <%= form.submit "Create Make", class 'button' %>
+<% end %>

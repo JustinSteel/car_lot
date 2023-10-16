@@ -4,6 +4,7 @@ class MakesController < ApplicationController
   end
   
   def new
+    @make = Make.new
   end
 
   def show
@@ -20,5 +21,23 @@ class MakesController < ApplicationController
     make.save
 
     redirect_to "/makes"
+  end
+
+  def edit
+    @make = Make.find(params[:id])
+  end
+
+  def update
+    make = Make.find(params[:id])
+    make.update(make_params)
+
+    redirect_to '/makes'
+  end
+
+  private
+  def make_params
+    params.require(:make).permit(:name)
+    params.require(:make).permit(:year)
+    params.require(:make).permit(:american)
   end
 end

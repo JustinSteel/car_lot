@@ -8,11 +8,12 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <a href="/cars">Car Index</a>
-    <a href="/makes">Make Index</a>
+    
   </head>
 
   <body>
+    <a href="/cars">Car Index</a>
+    <a href="/makes">Make Index</a>
     <%= yield %>
   </body>
 </html>
