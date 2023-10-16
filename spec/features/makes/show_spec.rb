@@ -32,4 +32,25 @@ RSpec.describe "/makes/:id", type: :feature  do
       expect(page).to have_content("Number of cars: 3")
     end
   end
+
+#   As a visitor
+# When I visit a parent show page ('/parents/:id')
+# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+  describe "When I visit a make show page" do
+    it "Then I see a link to take me to that make's cars page" do
+      # arrange
+      chevy = Make.create!(name:"Chevy", year:1905, american:true)
+
+      spark = chevy.cars.create!(name:"Spark", engine:4, new:true)
+      corvette = chevy.cars.create!(name:"Corvette", engine:8, new:true)
+      malabu = chevy.cars.create!(name:"Malabu", engine:6, new:false)
+      # act
+      visit "/makes/#{chevy.id}"
+      click_on "Car_list"
+save_and_open_page
+      # assert
+      expect(current_path).to eq("/makes/#{chevy.id}/cars")
+    end
+  end
+
 end

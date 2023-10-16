@@ -1,6 +1,6 @@
 class MakeCarsController < ApplicationController
   def index
-    @makes = Make.find(params[:make_id])
-    @cars = @makes.cars
+    @make = Make.find(params[:make_id])
+    @cars = @make.cars
   end
 end

@@ -74,7 +74,7 @@ RSpec.describe "/makes", type: :feature  do
     it "Then I see a link at the top of the page that takes me to the Child Index" do
 
       visit "/makes"
-# save_and_open_page
+
       click_on "Car Index"
       expect(current_path).to eq("/cars")
     end

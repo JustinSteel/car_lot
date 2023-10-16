@@ -30,7 +30,7 @@ RSpec.describe "/cars", type: :feature do
       visit "/cars"
 
       # assert
-      save_and_open_page
+  
       click_on "Make Index"
       expect(current_path).to eq("/makes")
     end

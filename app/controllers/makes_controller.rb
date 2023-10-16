@@ -4,6 +4,7 @@ class MakesController < ApplicationController
   end
 
   def show
+    
     @make = Make.find(params[:id])
   end
 end
