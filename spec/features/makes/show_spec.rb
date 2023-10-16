@@ -47,7 +47,7 @@ RSpec.describe "/makes/:id", type: :feature  do
       # act
       visit "/makes/#{chevy.id}"
       click_on "Car_list"
-save_and_open_page
+
       # assert
       expect(current_path).to eq("/makes/#{chevy.id}/cars")
     end

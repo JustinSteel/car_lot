@@ -80,4 +80,47 @@ RSpec.describe "/makes", type: :feature  do
     end
   end
 
+#   As a visitor
+# When I visit the Parent Index page
+# Then I see a link to create a new Parent record, "New Parent"
+# When I click this link
+# Then I am taken to '/parents/new' where I  see a form for a new parent record
+# When I fill out the form with a new parent's attributes:
+# And I click the button "Create Parent" to submit the form
+# Then a `POST` request is sent to the '/parents' route,
+# a new parent record is created,
+# and I am redirected to the Parent Index page where I see the new Parent displayed.
+  describe "Make creation" do
+    it 'links to the new page for the makes index' do
+      # arrange
+      # act
+      visit '/makes'
+
+      click_link('New Make')
+      # assert
+      expect(current_path).to eq("/makes/new")
+    end
+
+    it 'can create a new make' do
+      # arrange
+      chevy = Make.create!(name:"Chevy", year:1905, american:true)
+      ford = Make.create!(name:"Ford", year:1888, american:true)
+      suzuki = Make.create!(name:"Suzuki", year:1909, american:false)
+
+      # act
+      visit '/makes'
+
+      click_link('New Make')
+
+      fill_in('make[name]', with: 'Toyota')
+      fill_in('make[year]', with: 1937)
+      fill_in('make[american]', with: false)
+
+      click_button('Create Make')
+      # assert
+      expect(current_path).to eq("/makes")
+      expect(page).to have_content('Toyota')
+    end
+  end
+
 end

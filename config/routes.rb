@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/", to: "welcome#index"
   get "/makes", to: "makes#index", as: "makes"
+  get "/makes/new", to: "makes#new"
+  post "/makes", to: "makes#create"
   get "/makes/:id", to: "makes#show"
   get "/cars", to: "cars#index", as: "cars"
   get "/cars/:id", to: "cars#show"

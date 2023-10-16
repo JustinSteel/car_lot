@@ -1,0 +1,8 @@
+<form action="/makes" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new make:</p>
+  Name <input type='text' name='make[name]'/><br/>
+  Year founded <textarea name='make[year]'></textarea><br/>
+  American made? <textarea name='make[american]'></textarea><br/>
+  <input type='submit' value='Create Make'/>
+</form>
