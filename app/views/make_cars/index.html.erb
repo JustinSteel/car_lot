@@ -1,0 +1,8 @@
+<%= link_to "Create Car", new_make_car_path %>
+<h1><%="#{@make.name}"%></h1>
+<% @cars.each do |car| %>
+  <h2>Name: <%= car.name %></h2>
+  <p>Number of pistons: <%= car.engine %></p>
+  <p>Is it new? <%= car.new %></p>
+  <% end %> 
+ 

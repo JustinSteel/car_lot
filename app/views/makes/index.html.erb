@@ -1,5 +1,5 @@
 <h1>Makes</h1>
-
+<%= link_to "Create Make", "/makes/new"  %>
 <%@makes.each do |make|%>
-<p><%=make.name%></p>
+<p><h2><%=link_to make.name, "makes/#{make.id}"%></h2> created at: <%= make.created_at %></p>
 <%end%>

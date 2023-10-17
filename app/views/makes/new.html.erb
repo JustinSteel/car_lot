@@ -1,0 +1,9 @@
+<%= form_with model: Make.new, data: {turbo:false} do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, placeholder: "make name" %>
+  <%= form.label :year %>
+  <%= form.text_field :year, placeholder: "Year established" %>
+  <%= form.label :american %>
+  <%= form.select :american, [true, false] %>
+  <%= form.submit "Create Make", class: 'button' %>
+<% end %>
