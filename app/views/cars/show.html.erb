@@ -1,4 +1,5 @@
 <h1><%=@car.name%></h1>
+<%= link_to "Update #{@car.name}", edit_car_path %>
 <ul>
   <li>Number of pistons: <%=@car.engine%></li>
   <li>contition new: <%=@car.new%></li>

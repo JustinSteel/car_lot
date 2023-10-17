@@ -1,4 +1,4 @@
 <h1>All Cars</h1>
 <% @cars.each do |car| %>
-<p><%=car.name%></p>
+<p><%=link_to car.name, "cars/#{car.id}"%></p>
 <% end %> 
