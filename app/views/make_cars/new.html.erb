@@ -1,0 +1,9 @@
+<%= form_with url: "/makes/#{@make.id}/cars", data: {turbo:false} do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, placeholder: "car model" %>
+  <%= form.label :engine %>
+  <%= form.text_field :engine, placeholder: "number of pistons" %>
+  <%= form.label :new %>
+  <%= form.select :new, [true, false] %>
+  <%= form.submit "Create Car", class: 'button' %>
+<% end %>

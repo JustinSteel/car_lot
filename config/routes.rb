@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get "/makes/:make_id/cars", to: "make_cars#index", as: "make_cars"
   get "/makes/:id/edit", to: "makes#edit", as: "edit_make"
   patch "/makes/:id", to: "makes#update", as: "update_make"
- 
+  get "/makes/:make_id/cars/new", to: "make_cars#new", as: "new_make_car"
+  post "/makes/:make_id/cars", to: "make_cars#create", as: "new_car"
 end
