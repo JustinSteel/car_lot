@@ -32,14 +32,13 @@ describe 'has update button' do
     visit "/makes/#{make.id}"
 
     expect(page).to have_content('Hond')
+    click_link 'Update Hond'
+    # save_and_open_page
 
-    click_button 'Edit Hond'
+    fill_in 'Name', with: 'Honda'
+    click_on "Update #{make.name}"
 
-    fill_in 'make[Name]', with: 'Honda'
-    fill_in 'make[Year]', with: 1999
-    click_on 'Update Make'
-
-    expect(current_path).to eq("/makes")
+    expect(current_path).to eq(make_path(make))
     expect(page).to have_content('Honda')
   end
 end

@@ -1,6 +1,9 @@
-<%= form_with url: "/makes", method: :post, data: {turbo:false} do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-
-  <%= form.submit "Update #{make.name}" %>
+<%= form_with model: @make, url: update_make_path(@make), method: :patch, data: {turbo:false} do |form| %>
+ <%= form.label :name %>
+  <%= form.text_field :name%>
+  <%= form.label :year %>
+  <%= form.text_field :year%>
+  <%= form.label :american %>
+  <%= form.select :american, [true, false] %>
+  <%= form.submit "Update #{@make.name}", class: 'button' %>
 <% end %>

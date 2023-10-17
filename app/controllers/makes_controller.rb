@@ -31,13 +31,12 @@ class MakesController < ApplicationController
     make = Make.find(params[:id])
     make.update(make_params)
 
-    redirect_to '/makes'
+    redirect_to make_path(make)
   end
 
   private
   def make_params
-    params.require(:make).permit(:name)
-    params.require(:make).permit(:year)
-    params.require(:make).permit(:american)
+    params.require(:make).permit(:name, :year, :american)
+   
   end
 end

@@ -1,6 +1,7 @@
 
 <h1><%=@make.name%></h1>
- <a href="<%= make_cars_path(@make) %>">Car_list</a>
+ <%= link_to "Car_list", make_cars_path(@make) %>
+ <%= link_to "Update #{@make.name}", edit_make_path(@make) %>
 <ul>
   <li>year: <%=@make.year%></li>
   <li>American made? <%=@make.american%></li>

@@ -96,7 +96,7 @@ RSpec.describe "/makes", type: :feature  do
       # act
       visit '/makes'
 
-      click_link('New Make')
+      click_link('Create Make')
       # assert
       expect(current_path).to eq("/makes/new")
     end
@@ -110,11 +110,11 @@ RSpec.describe "/makes", type: :feature  do
       # act
       visit '/makes'
 
-      click_link('New Make')
+      click_link('Create Make')
 
-      fill_in('make[name]', with: 'Toyota')
-      fill_in('make[year]', with: 1937)
-      fill_in('make[american]', with: false)
+      fill_in('Name', with: 'Toyota')
+      fill_in('Year', with: 1937)
+      select('false', from: 'American')
 
       click_button('Create Make')
       # assert
