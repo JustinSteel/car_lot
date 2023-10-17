@@ -1,0 +1,9 @@
+<%= form_with model: @cars, url: car_show_path(@car), method: :patch, data: {turbo:false} do |form| %>
+ <%= form.label :name %>
+  <%= form.text_field :name%>
+  <%= form.label :engine %>
+  <%= form.text_field :engine%>
+  <%= form.label :new %>
+  <%= form.select :new, [true, false] %>
+  <%= form.submit "Update #{@car.name}", class: 'button' %>
+<% end %>
