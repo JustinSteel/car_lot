@@ -4,13 +4,6 @@ class MakeCarsController < ApplicationController
     @cars = @make.cars
   end
 
-  def create
-    make = Make.find(params[:make_id])
-    make.cars.create(car_params)
-
-    redirect_to "/makes/#{make.id}/cars"
-  end
-
   def new
     @make = Make.find(params[:make_id])
     # @car = @make.car.new
